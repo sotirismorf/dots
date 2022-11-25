@@ -26,7 +26,6 @@ export KEYTIMEOUT=20
 
 # Load version control information
 autoload -Uz vcs_info
-precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats '%b'
@@ -39,6 +38,7 @@ GIT_COLOR=red
 
 
 precmd() {
+	precmd() { vcs_info }
 	KUBE_STATUS_NAMESPACE=$(awk -F'[ /]' '/current-context/{print $2}' $HOME/.kube/config)
 	KUBE_STATUS_CLUSTER=$(awk -F'[ /]' '/current-context/{print $3}' $HOME/.kube/config)
 	KUBE_STATUS_USERNAME=$(awk -F'[ /]' '/current-context/{print $4}' $HOME/.kube/config)
