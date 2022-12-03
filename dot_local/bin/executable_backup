@@ -14,6 +14,6 @@ tar cf "/tmp/$BACKUP_FILENAME" /tmp/backup
 
 echo "Encrypting tar file..."
 
-gpg --output "$BACKUP_DIR/$BACKUP_FILENAME.gpg" --encrypt --recipient $GPG_KEY_ID "/tmp/$BACKUP_FILENAME"
+gpg --output "$BACKUP_DIR/$BACKUP_FILENAME.gpg" --encrypt --recipient $EMAIL "/tmp/$BACKUP_FILENAME"
 
 [ -d "/media/$USER/KINGSTON/backups" ] && echo "Copying to flash drive..." && rsync -aP "$BACKUP_DIR/" /media/sotiris/KINGSTON/backups-work
