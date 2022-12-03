@@ -9,7 +9,7 @@ rsync -aP --exclude-from=$IGNORE_LIST $HOME /tmp/backup/
 
 echo "Creating tar archive..."
 
-BACKUP_FILENAME="backup-$EMAIL-$(date +"%Y-%m-%d-%H-%M").tar"
+BACKUP_FILENAME="$EMAIL-$(date +"%Y-%m-%d-%H-%M").tar"
 tar cf "/tmp/$BACKUP_FILENAME" /tmp/backup
 
 echo "Encrypting tar file..."
