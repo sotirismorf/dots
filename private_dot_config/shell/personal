@@ -1,6 +1,5 @@
 #!/bin/sh
 
-alias backup='rsync -aP --exclude-from=/home/$USER/.config/backup/ignorelist /home/$USER/ terra/home/'
 alias study-with-me='mpv --no-terminal "https://www.youtube.com/watch?v=sWaSi6cdXXE" & disown'
 alias waybar-refresh='killall waybar ; waybar & disown'
 alias paccache-last2='paccache -rk2'

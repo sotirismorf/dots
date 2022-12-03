@@ -1,0 +1,18 @@
+#!/bin/sh
+
+[ ! -d "$HOME/music/mousikh-kalhs-kafeterias" ] && mkdir "$HOME/music/mousikh-kalhs-kafeterias"
+[ ! -d "$HOME/music/party-polytexnikh" ] && mkdir "$HOME/music/party-polytexnikh"
+
+spotdl -o ~/music/accelerate "https://open.spotify.com/playlist/1TNIDPCO67NQWBSd0DgvZV"
+
+spotdl -o ~/music/cocktail-bar-oikonomikhs-enisxyshs "https://open.spotify.com/playlist/0f9e3WQfwOJeP5QSMOjbno"
+
+spotdl -o ~/music/algorithm-music "https://open.spotify.com/playlist/2DDvAT9IqAT6Ovv7eWBIvh"
+
+spotdl -o ~/music/my-cat-likes-these "https://open.spotify.com/playlist/1vOkVq7zG2NNCi2APmsCYK"
+
+spotdl -o ~/music/xx2043 "https://open.spotify.com/playlist/4nEVcZg77q3QN4x55igpel"
+
+spotdl -o ~/music/mousikh-kalhs-kafeterias "https://open.spotify.com/playlist/6f97mbw2azbEMZymePr5iA"
+
+spotdl -o ~/music/party-polytexnikh "https://open.spotify.com/playlist/3po6L96EkzVDoTCq1L7OI7"
