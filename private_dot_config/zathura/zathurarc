@@ -1,0 +1,12 @@
+map <C-i> recolor
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"
+
+set default-bg rgba(40,40,40,0.8)
+set statusbar-bg rgba(40,40,40,0.3)
+
+set font "Noto Sans Mono 11"
+set selection-clipboard clipboard
+set statusbar-h-padding 40
+set statusbar-basename false
+set guioptions sv
