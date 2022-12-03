@@ -1,0 +1,299 @@
+# rsync-homedir-excludes
+#
+# A list of files to exclude when backing up *nix home directories using rsync.
+#
+# Author: Ruben Barkow-Kuder <https://github.com/rubo77/rsync-homedir-excludes>
+# Version: 2019-11-30
+#
+# #Usage:
+#    USER=<homedir username here>
+#    rsync -aP --exclude-from=rsync-homedir-excludes.txt /home/$USER/ /media/$USER/linuxbackup/home/$USER/
+
+
+###############################################
+# directories, probably not worth a backup    #
+# (uncomment the files you don't need)        #
+###############################################
+
+#.android
+#.AndroidStudio*/
+#Android/Sdk
+#.gradle
+#.gvm
+#.grails/
+#.grails_history
+#.kde/share/apps/nepomuk
+#.local/share/notbit
+#.local/libvirt
+#.local/share/libvirt
+.vagrant/
+.vagrant.d/
+yay-git/
+.minikube/
+.config/nvm
+Downloads/
+p/virtenvs
+.kube
+flashaki
+#.wine
+#.twister
+#/twister
+#Applications/eclipse*
+#/Downloads
+#*Popcorntime*
+#/.aMule
+#/Scribus
+#/VirtualBox*
+#.local/share/gnome-boxes/images
+#/Nextcloud
+#_build
+#
+## Ruby gems
+#.rvm
+#
+## Add Game Folders here:
+#
+#/games
+#.local/share/Steam
+#.var/app/com.valvesoftware.Steam/.local/share/Steam
+#.steam
+#/Steam
+#.minecraft
+#.technic
+#.PlayOnLinux
+#.local/share/lutris/runners/wine/
+#
+## Spotify
+#.config/spotify/Users
+#.var/app/com.spotify.Client/config/spotify/Users
+#
+## those folders contain only temporary Videos I want to watch
+#/Videos
+#/Movies
+#
+## some history files
+#.python_history
+#.bash_history
+#.zsh_history
+#.mysql_history
+#
+## Python eggs
+#.local/lib/python*
+#
+## Python virtual environments
+#PycharmProjects/**/venv
+#
+## Maven local repository
+#/.m2
+#
+## Unlocked Plasma Vaults
+#/Vaults
+## Docker
+#.docker/machine
+#.local/share/containers
+
+################################################
+# These directories may definitely be excluded #
+################################################
+
+.local
+
+terra
+
+# Contains mounted file systems:
+
+.gvfs
+.local/share/gvfs-metadata
+# contains the actual encrypted home directory
+/.Private
+
+# Session-specific:
+/.dbus
+.cache
+.var/app/*/cache
+.var/app/*/.cache
+/.Trash
+.Trash-1*
+.local/share/Trash
+/Trash
+
+# Cached info about audio CDs:
+.cddb
+
+# Cached packages lists:
+.aptitude
+
+# Node Package Manager cache
+.npm
+*/node_modules/*
+
+# VIRTUAL MACHINES
+VMs
+
+# Node Version Manager
+.nvm
+
+#Flash-specific:
+
+# Cache for flash, maybe others?
+.adobe
+# except for Flash persistence, there is no reason to keep this
+.macromedia
+
+#Files:
+
+# Contains errors from the current graphical session
+.xsession-errors
+.xsession-errors.old
+.wayland-errors
+
+# Recently used files
+.local/share/RecentDocuments
+.recently-used
+.recently-used.xbel
+recently-used.xbel
+.thumbnails
+.thumb
+Thumbs.db
+.DS_Store
+.localised
+.CFUserTextEncoding
+.zcompdump*
+.wget-hsts
+
+# Common Unix Printing System
+/.cups
+
+# run-time configuration information for Subversion
+/.subversion
+
+# Python virtual environments
+/.virtualenvs
+
+# Session-specific
+.Xauthority
+.ICEauthority
+.gksu.lock
+.pulse
+.pulse-cookie
+.esd_auth
+
+#KDE specific:
+
+# Recent documents on KDE
+.kde/share/apps/RecentDocuments
+.kde4/share/apps/RecentDocuments
+# Contains a history of the Klipper clipboard (KDE)
+.kde/share/apps/klipper
+.kde4/share/apps/klipper
+.local/share/klipper
+# You will loose saved scrolling positions of PDFs
+.kde/share/apps/okular/docdata
+.kde/share/apps/gwenview/recentfolders
+.kde4/share/apps/okular/docdata
+.kde4/share/apps/gwenview/recentfolders
+.local/share/okular/docdata
+.local/share/org.kde.gwenview/recentfolders
+# Cached other users' profile pics
+.kde/share/apps/kmess/displaypics
+.kde4/share/apps/kmess/displaypics
+# Cached emoticons of others
+.kde/share/apps/kmess/customemoticons
+.kde4/share/apps/kmess/customemoticons
+
+#Gnome specific:
+
+# tracker data files
+.local/share/tracker
+
+#Tor Browser supposed to not be backupped ;)
+.local/share/torbrowser
+
+#Firefox-specific (see also Profile folder):
+
+
+# Keychain dir (manage SSH and GPG keys, front-end to ssh-agent and ssh-add)
+/.keychain
+
+#GnuPG:
+
+.gnupg/rnd
+.gnupg/random_seed
+.gnupg/.#*
+.gnupg/*.lock
+.gnupg/gpg-agent-info-*
+
+# Browsers
+
+.config/chromium
+.config/BraveSoftware
+.mozilla/firefox
+.config/google-chrome
+
+#Random 
+
+.config/discord
+downloads
+
+#Local repositories:
+.gradle/caches
+/.m2/repository
+
+#indexer
+.local/share/baloo
+.local/share/zeitgeist
+.local/share/akonadi
+
+#Other apps:
+
+# Pidgin
+.purple/icons
+# Cached applets
+.guayadeque/cache.db
+.java/deployment/cache
+.icedteaplugin
+.icedtea
+.gnome2/epiphany/favicon_cache
+
+# other temporary files
+nohup.out
+
+# LibreOffice cache files
+.config/libreoffice/4/cache
+
+# Vim
+.vim/bundle/*
+.viminfo
+
+# VirtualBox
+.config/VirtualBox/VBoxSVC.log*
+.config/VirtualBox/VBoxGuestAdditions_*
+*VirtualBox*
+
+# Rust artefacts
+.cargo
+.rustup
+
+# Erlang artefacts
+.kerl
+
+# golang Cache
+go/pkg/mod/cache
+
+pictures
+music
+
+# Electron Apps
+.config/**/blob_storage
+.config/**/Application Cache
+.config/**/Cache
+.config/**/CachedData
+.config/**/Code Cache
+.config/**/GPUCache
+.var/app/**/blob_storage
+.var/app/**/Application Cache
+.var/app/**/Cache
+.var/app/**/CachedData
+.var/app/**/Code Cache
+.var/app/**/GPUCache
+
