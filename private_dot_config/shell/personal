@@ -5,6 +5,7 @@ alias waybar-refresh='killall waybar ; waybar & disown'
 alias paccache-last2='paccache -rk2'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
+export EMAIL="$(cat $HOME/.config/.env_personal)"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
