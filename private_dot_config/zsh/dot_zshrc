@@ -94,6 +94,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M main '^J' vi-down-line-or-history
 bindkey -M main '^K' vi-up-line-or-history
 
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
