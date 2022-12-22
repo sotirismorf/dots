@@ -1,0 +1,95 @@
+general {
+	colors = true
+	interval = 2
+}
+
+# order += "ipv6"
+order += "disk /"
+order += "disk /home"
+# order += "run_watch VPNC"
+# order += "path_exists VPN"
+order += "wireless wlan0"
+order += "ethernet eno1"
+order += "battery 1"
+order += "memory"
+order += "load"
+order += "tztime local"
+
+wireless wlan0 {
+	format_up = "🛜%essid"
+	format_down = "W: down"
+	separator = false
+}
+
+ethernet eno1 {
+	format_up = "✨Ethernet"
+	format_down = "❌Ethernet"
+	separator = false
+}
+
+battery 1 {
+	format = "%status%percentage"
+	format_down = "No battery"
+	status_chr = "🔌"
+	status_bat = "🔋"
+	status_unk = "? UNK"
+	status_full = "🔋"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 10
+	separator = false
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+	separator = false
+}
+
+run_watch VPNC {
+        # file containing the PID of a vpnc process
+        pidfile = "/var/run/vpnc/pid"
+	separator = false
+}
+
+path_exists VPN {
+	# path exists when a VPN tunnel launched by nmcli/nm-applet is active
+	path = "/proc/sys/net/ipv4/conf/tun0"
+	separator = false
+}
+
+tztime local {
+	format = "📅%a, %d %b ⌛%H:%M:%S"
+	separator = false
+}
+
+load {
+	format = "%5min"
+	separator = false
+}
+
+cpu_temperature 0 {
+	format = "T: %degrees °C"
+	path = "/sys/devices/platform/coretemp.0/temp1_input"
+	separator = false
+}
+
+memory {
+	format = "🧠%used"
+	threshold_degraded = "10%"
+	format_degraded = "MEMORY: %free"
+	separator = false
+}
+
+disk "/" {
+	format = "%percentage_used (%free)"
+	separator = false
+}
+
+disk "/home" {
+	format = "🏠%percentage_used (%free)"
+	separator = false
+}
+
+read_file uptime {
+	path = "/proc/uptime"
+	separator = false
+}
