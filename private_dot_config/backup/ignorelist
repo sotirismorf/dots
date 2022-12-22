@@ -30,6 +30,7 @@
 .vagrant.d/
 yay-git/
 .minikube/
+.backups/
 .config/nvm
 Downloads/
 p/virtenvs

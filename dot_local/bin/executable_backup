@@ -5,15 +5,15 @@ BACKUP_DIR=$HOME/.backups
 
 [ ! -v EMAIL ] && echo "Please set environment variable: EMAIL" && exit 1
 
-rsync -aP --exclude-from=$IGNORE_LIST $HOME /tmp/backup/
+rsync -aP --delete-after --exclude-from=$IGNORE_LIST $HOME /tmp/backup/
 
 echo "Creating tar archive..."
 
 BACKUP_FILENAME="$EMAIL-$(date +"%Y-%m-%d-%H-%M").tar"
-tar cf "/tmp/$BACKUP_FILENAME" /tmp/backup
+tar cf "/tmp/backup.tar" /tmp/backup
 
 echo "Encrypting tar file..."
 
-gpg --output "$BACKUP_DIR/$BACKUP_FILENAME.gpg" --encrypt --recipient $EMAIL "/tmp/$BACKUP_FILENAME"
+gpg --output "$BACKUP_DIR/$BACKUP_FILENAME.gpg" --encrypt --recipient $EMAIL "/tmp/backup.tar"
 
 [ -d "/media/$USER/KINGSTON/backups" ] && echo "Copying to flash drive..." && rsync -aP "$BACKUP_DIR/" /media/sotiris/KINGSTON/backups-work
