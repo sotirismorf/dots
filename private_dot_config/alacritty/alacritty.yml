@@ -29,13 +29,13 @@ font:
     family: Noto Sans Mono
     style: Bold Italic
 
-  size: 13
-  # size: 11
+  size: 8
 
 cursor:
   style:
     shape: Beam
-  blinking: Off
+    blinking: Off
+    # blink_timeout: 0
   vi_mode_style: Block
   thickness: 0.2
 
@@ -43,4 +43,4 @@ mouse:
   hide_when_typing: false
 
 key_bindings:
-  - { key: N, mods: Control,                         action: SpawnNewInstance   }
+  - { key: N, mods: Control, action: SpawnNewInstance }
