@@ -36,7 +36,6 @@ DOLLAR_COLOR=yellow
 DIR_COLOR=magenta
 GIT_COLOR=red
 
-
 precmd() {
 	precmd() { vcs_info }
 	KUBE_STATUS_NAMESPACE=$(awk -F'[ /]' '/current-context/{print $2}' $HOME/.kube/config)
@@ -54,29 +53,16 @@ PROMPT+=" %{$fg[$BOX_COLOR]%}┗╸"
 PROMPT+="%{$fg[$DOLLAR_COLOR]%}$ "
 PROMPT+="%{$reset_color%}"
 
-
-
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shell/common" ] && source "$HOME/.config/shell/common"
 [ -f "$HOME/.config/.env_work" ] && [ -f "$HOME/.config/shell/work" ] && source "$HOME/.config/shell/work"
 [ -f "$HOME/.config/.env_personal" ] && [ -f "$HOME/.config/shell/personal" ] && source "$HOME/.config/shell/personal"
 
-# Basic auto/tab complete:
-autoload -Uz compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-#zstyle ':completion:*' verbose yes
-zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
-zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
-zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-zstyle ':completion:*' group-name ''
-
-function fzf_hist_search () { fc -ln 0 | fzf | wl-copy }
+function fzf_hist_search () { fc -ln 0 | fzf | xclip -selection clipboard }
 zle -N fzf_hist_search
 bindkey '^S' fzf_hist_search
+
+source "$ZDOTDIR/scripts/completion.zsh"
 
 # vi mode
 
@@ -86,14 +72,7 @@ source "$ZDOTDIR/scripts/kubectl_comp.zsh"
 source "$ZDOTDIR/scripts/oc_comp.zsh"
 source "$ZDOTDIR/scripts/chezmoi_comp.zsh"
 
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
 bindkey -M main '^J' vi-down-line-or-history
 bindkey -M main '^K' vi-up-line-or-history
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
