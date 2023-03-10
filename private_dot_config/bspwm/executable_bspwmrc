@@ -2,7 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor eDP-1 -d 1 2
+bspc monitor DP-1 -d 3 4 5 6 7 8 9 10
 
 bspc config border_width 3
 bspc config window_gap 0
@@ -32,7 +33,7 @@ setxkbmap us,gr -option grp:alt_shift_toggle
 setxkbmap -option ctrl:nocaps
 
 # Launch polybar
-killall polybar ; polybar --config=$HOME/.config/polybar/config.ini laptop &
+$HOME/.config/polybar/launch.sh &
 
 # Enable tapping on touchpad
 xinput set-prop "DELL08E1:00 06CB:CD97 Touchpad" "libinput Tapping Enabled" 1
