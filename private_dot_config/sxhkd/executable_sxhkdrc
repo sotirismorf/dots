@@ -6,9 +6,9 @@ super + Return
 super + w
 	firefox
 
-# file manager
-super + e
-	thunar
+# password manager
+super + p
+	~/.local/bin/passmenu
 
 # program launcher
 #super + @space
